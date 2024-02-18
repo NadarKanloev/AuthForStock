@@ -6,7 +6,9 @@ import com.Auth.DTO.SignUpRequest;
 import com.Auth.Enum.Role;
 import com.Auth.Model.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +46,7 @@ public class AuthenticationService {
      * @param request данные пользователя
      * @return токен
      */
-    public JwtAuthenticationResponse signIn(SignUpRequest request){
+    public JwtAuthenticationResponse signIn(SignInRequest request){
 
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 request.getUsername(),
