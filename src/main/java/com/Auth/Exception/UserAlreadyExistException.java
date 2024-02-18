@@ -1,2 +1,7 @@
-package com.Auth.Exception;public class UserAlreadyExistException {
+package com.Auth.Exception;
+
+public class UserAlreadyExistException extends RuntimeException{
+    public UserAlreadyExistException(String message){
+        super(message);
+    }
 }
