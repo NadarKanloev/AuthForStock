@@ -3,6 +3,7 @@ package com.Auth.Service;
 import com.Auth.Exception.UserAlreadyExistException;
 import com.Auth.Model.User;
 import com.Auth.Repository.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +24,7 @@ public class UserService {
      * @param user пользователь
      * @return сохраненный пользователь
      */
+    @Transactional
     public User save(User user){
         return userRepository.save(user);
     }
@@ -32,6 +34,7 @@ public class UserService {
      * @param user
      * @return Созданный пользователь
      */
+    @Transactional
     public User create(User user){
         if(userRepository.existsByUsername(user.getUsername())) {
             throw new UserAlreadyExistException("Пользователь с таким именем уже существует");
