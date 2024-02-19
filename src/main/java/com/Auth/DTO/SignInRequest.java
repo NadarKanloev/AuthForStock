@@ -3,10 +3,15 @@ package com.Auth.DTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Schema
+@AllArgsConstructor
+@NoArgsConstructor
 public class SignInRequest {
     @Schema(description = "Имя пользователя", example = "Nadar")
     @Size(min = 5, max = 50, message = "Имя пользователя должно содержать от 5 до 50 символов")
